@@ -6,7 +6,7 @@ edition = "2018"
 license = "MIT"
 categories = [ "external-ffi-bindings" ]
 keywords = [ "ffi", "linux", "uapi", "opal", "sed" ]
-description = "FFI bindings to linux sed-opal UAPI"
+description = "FFI bindings to linux sed-opal UAPI (linux/sed-opal.h)"
 
 include = [
     "src/lib.rs",
@@ -16,8 +16,10 @@ include = [
 ]
 
 [features]
-# initial support is for linux 6.1
-linux_6_4 = []
+# initial support is for linux 6.0
+linux_6_1 = []
+linux_6_4 = [ "linux_6_1" ]
+linux_6_6 = [ "linux_6_4" ]
 
 [dependencies]
 nix = { version = "0.27", features = [ "ioctl" ] }
