@@ -50,9 +50,11 @@ ioctl_write_ptr!(ioc_opal_write_shadow_mbr, b'p', 234, opal_shadow_mbr);
 ioctl_write_ptr!(ioc_opal_generic_table_rw, b'p', 235, opal_read_write_table);
 ioctl_read_buf!(ioc_opal_get_status, b'p', 236, opal_status);
 
-/* starting from kernel 6.4
-ioctl_write_ptr!(ioc_opal_get_lr_status, b'p', 237, opal_lr_status);
-ioctl_read_buf!(ioc_opal_get_geometry, b'p', 238, opal_geometry);
-ioctl_write_ptr!(ioc_opal_discovery, b'p', 239, opal_discovery);
-ioctl_write_ptr!(ioc_opal_revert_lsp, b'p', 240, opal_revert_lsp);
-*/
+cfg_if::cfg_if! {
+    if #[cfg(linux_6_4)] {
+        ioctl_write_ptr!(ioc_opal_get_lr_status, b'p', 237, opal_lr_status);
+        ioctl_read_buf!(ioc_opal_get_geometry, b'p', 238, opal_geometry);
+        ioctl_write_ptr!(ioc_opal_discovery, b'p', 239, opal_discovery);
+        ioctl_write_ptr!(ioc_opal_revert_lsp, b'p', 240, opal_revert_lsp);
+    }
+}

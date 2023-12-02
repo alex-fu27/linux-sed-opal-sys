@@ -130,6 +130,7 @@ name = "linux-sed-opal-sys"
 version = "0.1.0"
 dependencies = [
  "bindgen",
+ "cfg-if",
  "nix",
 ]
 
