@@ -30,7 +30,10 @@ from     include/uapi/linux/sed-opal.h
 #define IOC_OPAL_REVERT_LSP         _IOW('p', 240, struct opal_revert_lsp)
 */
 
-use nix::{ioctl_write_ptr, ioctl_read_buf};
+use nix::ioctl_write_ptr;
+
+#[cfg(any(feature="linux_6_1", feature="linux_6_4"))]
+use nix::ioctl_read_buf;
 
 ioctl_write_ptr!(ioc_opal_save, b'p', 220, opal_lock_unlock);
 ioctl_write_ptr!(ioc_opal_lock_unlock, b'p', 221, opal_lock_unlock);
