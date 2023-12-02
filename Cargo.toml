@@ -8,13 +8,6 @@ categories = [ "external-ffi-bindings" ]
 keywords = [ "ffi", "linux", "uapi", "opal", "sed" ]
 description = "FFI bindings to linux sed-opal UAPI (linux/sed-opal.h)"
 
-include = [
-    "src/lib.rs",
-    "build.rs",
-    "Cargo.toml",
-    "wrapper.h",
-]
-
 [features]
 # initial support is for linux 6.0
 linux_6_1 = []
